@@ -7,7 +7,7 @@ from .forms import ContractForm
 # Create your views here.
 
 class ContractFormView(FormView):
-    template_name = "demo/form_horizontal.html"
+    template_name = "contract/addcontract.html"
     form_class = ContractForm
     
     def post(self, request, *args, **kwargs):
@@ -15,7 +15,7 @@ class ContractFormView(FormView):
         form = self.get_form(self.form_class)
         if form.is_valid():
             item = form.save()
-            return redirect("list") #self.form_valid(form, **kwargs)
+            return redirect("/list") #self.form_valid(form, **kwargs)
            
         else:
             return self.form_invalid(form, **kwargs)
@@ -23,5 +23,5 @@ class ContractFormView(FormView):
 class ContractsListView(ListView):
     model = Contract
     context_object_name = "contracts"
-    template_name = "demo/list.html"
+    template_name = "contract/list.html"
     

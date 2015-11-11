@@ -1,0 +1,17 @@
+{% extends 'contract/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+   输入合同
+{% endblock %}
+
+{% block content %}
+
+    <form role="form" class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        {% bootstrap_form form layout="horizontal" %}
+        {% buttons submit='提交' reset='取消' layout='horizontal' %}{% endbuttons %}
+    </form>
+
+{% endblock %}
