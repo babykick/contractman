@@ -13,7 +13,7 @@ if BOOTSTRAP3_FOLDER not in sys.path:
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
+SITE_ID = 1 
 ADMINS = ()
 
 DATABASES = {

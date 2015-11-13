@@ -10,7 +10,7 @@ class Project(models.Model):
     """
     serial_number = models.CharField(max_length=50, verbose_name="项目编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="项目名称")
-    content = models.TextField(max_length=300, verbose_name="项目内容")
+    intro = models.TextField(max_length=300, verbose_name="项目介绍",default="")
     
 
 # Create your models here.

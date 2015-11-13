@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.http import HttpResponse
 from .models import Project, Contract
 from .forms import ContractForm, WorkOrderForm, ProjectForm
 # Create your views here.
+from django.views.generic import View
 
 
+class IndexView(View):
+    def get(self, request):
+        return render(request, 'index.html')
+         
 
 class ProjectFormView(FormView):
-    template_name = "contract/addProject.html"
+    template_name = "main/addProject.html"
     form_class = ProjectForm
     
     def post(self, request, *args, **kwargs):
@@ -25,13 +30,14 @@ class ProjectFormView(FormView):
  
 class ProjectListView(ListView):
     model = Project
-    context_object_name = "contracts"
-    template_name = "contract/projectlist.html"
+    context_object_name = "projects"
+    template_name = "main/projectlist.html"
     
-
+class ProjectDetailView(DetailView):
+    pass
 
 class ContractFormView(FormView):
-    template_name = "contract/addcontract.html"
+    template_name = "main/addcontract.html"
     form_class = ContractForm
     
     def post(self, request, *args, **kwargs):
@@ -49,11 +55,11 @@ class ContractFormView(FormView):
 class ContractListView(ListView):
     model = Contract
     context_object_name = "contracts"
-    template_name = "contract/contractlist2.html"
+    template_name = "main/contractlist2.html"
     
 
 class WorkOrderFormView(FormView):
-    template_name = "contract/addworkorder.html"
+    template_name = "main/addworkorder.html"
     form_class = WorkOrderForm
     
     def post(self, request, *args, **kwargs):
@@ -68,6 +74,6 @@ class WorkOrderFormView(FormView):
 class WorkOrdersListView(ListView):
     model = Contract
     context_object_name = "workorders"
-    template_name = "contract/wordorderlist.html"
+    template_name = "main/wordorderlist.html"
     
 

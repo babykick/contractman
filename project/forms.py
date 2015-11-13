@@ -9,7 +9,7 @@ class ProjectForm(ModelForm):
         model = Project
         fields = ('serial_number',
                   'name',
-                  'content',
+                  'intro',
                 )
         
 
