@@ -35,8 +35,8 @@ class ProjectListView(ListView):
     
 class ProjectDetailView(DetailView):
     model = Project
-    
-
+   
+   
 class ContractFormView(FormView):
     template_name = "main/addcontract.html"
     form_class = ContractForm
