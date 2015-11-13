@@ -34,7 +34,8 @@ class ProjectListView(ListView):
     template_name = "main/projectlist.html"
     
 class ProjectDetailView(DetailView):
-    pass
+    model = Project
+    
 
 class ContractFormView(FormView):
     template_name = "main/addcontract.html"
