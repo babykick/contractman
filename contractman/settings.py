@@ -18,9 +18,16 @@ ADMINS = ()
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'data.db',
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mobileprojman',
+        'USER': 'postgres',
+        'PASSWORD':'Hacker1218',
+        'HOST':'localhost',
+        'TEST': {
+                    'charset': 'utf-8',
+                     },
+    },
+  
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -94,16 +101,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'demo.urls'
+ROOT_URLCONF = 'contractman.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'demo.wsgi.application'
+WSGI_APPLICATION = 'contractman.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'demo/templates'),
+   
 )
 
 INSTALLED_APPS = (
@@ -113,14 +120,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+     # extensions
     'bootstrap3',
     'django_extensions',
-    'demo',
-    'contract',
+    # apps    
+    'project',
 )
 
 # A sample logging configuration. The only tangible logging

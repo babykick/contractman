@@ -13,6 +13,7 @@
     <thead>   
       <tr>
         <th>合同名</th>
+        <th>合同编号</th>
         <th>合同内容</th>
         <th>Email</th>
       </tr>
@@ -24,9 +25,10 @@
       {% else %}
        <tr class="info">
       {% endif %}
-        <td><a herf="#">{{contract.title}}</a></td>
-        <td>{{contract.content}}</td>
-        <td>john@example.com</td>
+        <td><a herf="#">{{contract.name}}</a></td>
+        <td>{{contract.serial_number}}</td>
+        <td>{{contract.content}}</td>    
+        <td> </td>
       </tr>
       
       {% endfor %}   
