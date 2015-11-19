@@ -10,6 +10,7 @@ class ProjectForm(ModelForm):
         fields = ('serial_number',
                   'name',
                   'intro',
+                  'department'
                 )
         
 

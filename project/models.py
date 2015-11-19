@@ -12,7 +12,9 @@ class Project(models.Model):
     serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="项目编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="项目名称")
     intro = models.TextField(max_length=300, verbose_name="项目介绍", default="")
-    department = models.ForeignKey(Department, verbose_name="所属部门", null=True)
+    department = models.ForeignKey(Department, verbose_name="所属部门", null=True, related_name='projects')
+    
+    
     
 
 # Create your models here.
@@ -26,7 +28,7 @@ class Contract(models.Model):
     important = models.BooleanField(default=False, verbose_name="重要性")
     partA = models.CharField(max_length=50)
     partB = models.CharField(max_length=50)
-    timeline = models.DateTimeField()
+    timeline = models.DateTimeField(verbose_name="时限(年-月-日)")
     project = models.ForeignKey('Project')
     
     

@@ -9,8 +9,14 @@
         <h1>{% block title %}项目管理{% endblock %}</h1>
  
         {% bootstrap_messages %}
-
-        {% block content %}(no content){% endblock %}
+       
+        {% block content %}
+         {% for dept in departments %}
+            <a href="#">{{ dept.name }} <span class="badge">{{ dept.projects.count  }}</span></a><br>
+         {% endfor %}
+            <a href="#">Comments <span class="badge">10</span></a><br>
+            <a href="#">Updates <span class="badge">2</span></a>
+        {% endblock %}
     </div>
 
 {% endblock %}

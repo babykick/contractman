@@ -3,15 +3,16 @@ from django.views.generic import FormView
 from django.views.generic import CreateView, ListView, DetailView
 from django.http import HttpResponse
 from .models import Project, Contract
+from company.models import Department
 from .forms import ContractForm, WorkOrderForm, ProjectForm
 # Create your views here.
 from django.views.generic import View
 
 
-class IndexView(View):
-    def get(self, request):
-        return render(request, 'index.html')
-         
+class IndexView(ListView):
+    context_object_name = "departments"
+    template_name = "index.html"
+    model = Department
 
 class ProjectFormView(FormView):
     template_name = "main/addProject.html"
