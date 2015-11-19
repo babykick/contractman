@@ -22,7 +22,7 @@ class ProjectFormView(FormView):
         form = self.get_form(self.form_class)
         if form.is_valid():
             item = form.save()
-            return redirect("/list") #self.form_valid(form, **kwargs)
+            return redirect("/projects") #self.form_valid(form, **kwargs)
            
         else:
             return self.form_invalid(form, **kwargs)
@@ -33,6 +33,7 @@ class ProjectListView(ListView):
     context_object_name = "projects"
     template_name = "main/projectlist.html"
     
+    
 class ProjectDetailView(DetailView):
     model = Project
    
@@ -42,11 +43,10 @@ class ContractFormView(FormView):
     form_class = ContractForm
     
     def post(self, request, *args, **kwargs):
-        print "in"
         form = self.get_form(self.form_class)
         if form.is_valid():
             item = form.save()
-            return redirect("/list") #self.form_valid(form, **kwargs)
+            return redirect("/project/contracts") #self.form_valid(form, **kwargs)
            
         else:
             return self.form_invalid(form, **kwargs)
@@ -56,7 +56,7 @@ class ContractFormView(FormView):
 class ContractListView(ListView):
     model = Contract
     context_object_name = "contracts"
-    template_name = "main/contractlist2.html"
+    template_name = "main/contractlist.html"
     
 
 class WorkOrderFormView(FormView):
@@ -72,6 +72,8 @@ class WorkOrderFormView(FormView):
         else:
             return self.form_invalid(form, **kwargs)
  
+
+
 class WorkOrdersListView(ListView):
     model = Contract
     context_object_name = "workorders"

@@ -8,7 +8,7 @@ import uuid
 class Project(models.Model):
     """ 项目
     """
-    serial_number = models.CharField(max_length=50, verbose_name="项目编号", unique=True)
+    serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="项目编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="项目名称")
     intro = models.TextField(max_length=300, verbose_name="项目介绍",default="")
     
@@ -17,7 +17,7 @@ class Project(models.Model):
 class Contract(models.Model):
     """ 合同
     """
-    serial_number = models.CharField(max_length=50, verbose_name="合同编号", unique=True)
+    serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="合同编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="合同名称")
     content = models.TextField(max_length=300, verbose_name="合同内容")
     fund = models.IntegerField(verbose_name="合同上限金额(万元)")

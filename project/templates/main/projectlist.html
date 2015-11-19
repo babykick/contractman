@@ -21,7 +21,7 @@
 <body>
 
 <div class="container">
- 
+ <a href="add/"><button type="button" class="btn btn-primary">新建项目</button></a>
   <ul class="list-group">
     {% for proj in projects %}
     {% url 'project' proj.pk as proj_url %}
@@ -29,7 +29,7 @@
         <h4 class="list-group-item-heading">
           <a href="{{proj_url}}">{{proj.name}}</a>
         </h4>
-        <p class="list-group-item-text">{{proj.serial_number}}</p>
+        <p class="list-group-item-text"><b>编号</b>: {{proj.serial_number}}</p>
       </li>
     {% endfor %} 
   <ul>

@@ -9,6 +9,7 @@ from .views import ProjectListView, ProjectFormView, ProjectDetailView, \
 
 urlpatterns = [
     url(r'^projects/$', ProjectListView.as_view(), name="projects"),
-    url(r'^add/$', ContractFormView.as_view()),
-    url(r'project/(?P<pk>[0-9]+)', ProjectDetailView.as_view(), name="project"),
+    url(r'^projects/add/$', ProjectFormView.as_view()),
+    url(r'project/(?P<pk>[\w-]+)', ContractListView.as_view(), name="project"),
+    url(r'project/(?P<pk>[\w-]+)/contracts', ContractListView.as_view(), name="contracts"),
 ]
