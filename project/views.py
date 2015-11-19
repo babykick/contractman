@@ -36,8 +36,12 @@ class ProjectListView(ListView):
     template_name = "main/projectlist.html"
     
     def get_queryset(self):
-        dept = get_object_or_404(Department, pk=self.request.GET.get('dept'))
-        return Project.objects.filter(department=dept)
+        dept_pk = self.request.GET.get('dept')
+        if dept_pk:
+            #dept = get_object_or_404(Department, dept_pk)
+            return Project.objects.filter(department=dept_pk)
+        else:
+            return Project.objects.all()
     
     
 class ProjectDetailView(DetailView):
@@ -48,8 +52,15 @@ class ContractFormView(FormView):
     template_name = "main/addcontract.html"
     form_class = ContractForm
    
-    def post(self, request, *args, **kwargs):
-        return super(ContractFormView, self).post(request, *args, **kwargs)
+    def form_valid(self, form):
+        print self.kwargs
+        project = get_object_or_404(Project, pk=self.kwargs['pk'])
+        print project
+        if project:
+            form.instance.project = project
+            form.save()
+            return super(ContractFormView, self).form_valid(form)
+        
     
     def get_success_url(self):
         return "/project/{0}".format(self.kwargs['pk'])

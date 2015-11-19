@@ -15,7 +15,7 @@
         <div class="menu row">
             <div class="menu-category list-group  ">
                  {% for dept in departments %}
-                <a href="{% url 'projects' %}?dept={{ dept.pk }}" class="menu-item list-group-item  list-group-item-info"><b>{{ dept.name }}</b><span class="badge">{{ dept.projects.count  }}</span></a>
+                <a href="{% url 'projects' %}?dept={{ dept.pk }}" class="menu-item list-group-item  list-group-item-info"><b>{{ dept.name }}</b><span class="badge">{{ dept.projects.count }}</span></a>
                    {% endfor %}
             </div>
         {% endblock %}
