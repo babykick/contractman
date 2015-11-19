@@ -12,5 +12,7 @@ class Department(models.Model):
         return self.name
     
 
-class Administrator(models.Model):
+class Member(models.Model):
+    name = models.CharField(verbose_name="用户名", max_length=30)
+    
     user = models.OneToOneField('auth.User')

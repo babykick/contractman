@@ -15,6 +15,12 @@ class IndexView(ListView):
     model = Department
 
 
+class DashboardView(ListView):
+    context_object_name = "projects"
+    template_name = "main/dashboard.html"
+    model = Project
+
+
 
 class ProjectFormView(FormView):
     template_name = "main/addProject.html"
