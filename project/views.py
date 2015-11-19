@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import FormView
 from django.views.generic import CreateView, ListView, DetailView
 from django.http import HttpResponse
@@ -13,6 +13,8 @@ class IndexView(ListView):
     context_object_name = "departments"
     template_name = "index.html"
     model = Department
+
+
 
 class ProjectFormView(FormView):
     template_name = "main/addProject.html"
@@ -32,6 +34,10 @@ class ProjectListView(ListView):
     model = Project
     context_object_name = "projects"
     template_name = "main/projectlist.html"
+    
+    def get_queryset(self):
+        dept = get_object_or_404(Department, pk=self.request.GET.get('dept'))
+        return Project.objects.filter(department=dept)
     
     
 class ProjectDetailView(DetailView):

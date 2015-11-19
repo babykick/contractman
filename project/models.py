@@ -28,7 +28,7 @@ class Contract(models.Model):
     important = models.BooleanField(default=False, verbose_name="重要性")
     partA = models.CharField(max_length=50)
     partB = models.CharField(max_length=50)
-    timeline = models.DateTimeField(verbose_name="时限(年-月-日)")
+    timeline = models.CharField(max_length=30, verbose_name="时限(年-月-日)")
     project = models.ForeignKey('Project')
     
     

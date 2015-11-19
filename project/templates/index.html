@@ -11,12 +11,17 @@
         {% bootstrap_messages %}
        
         {% block content %}
-         {% for dept in departments %}
-            <a href="#">{{ dept.name }} <span class="badge">{{ dept.projects.count  }}</span></a><br>
-         {% endfor %}
-            <a href="#">Comments <span class="badge">10</span></a><br>
-            <a href="#">Updates <span class="badge">2</span></a>
+      
+        <div class="menu row">
+            <div class="menu-category list-group  ">
+                 {% for dept in departments %}
+                <a href="{% url 'projects' %}?dept={{ dept.pk }}" class="menu-item list-group-item  list-group-item-info"><b>{{ dept.name }}</b><span class="badge">{{ dept.projects.count  }}</span></a>
+                   {% endfor %}
+            </div>
         {% endblock %}
     </div>
+    
+    
+    
 
 {% endblock %}

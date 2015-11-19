@@ -21,7 +21,9 @@ class ContractForm(ModelForm):
                   'name',
                   'content',
                   'fundlimit',
-                  'timeline')
+                  'timeline',
+                  'partA',
+                  'partB')
         
         
 class WorkOrderForm(ModelForm):

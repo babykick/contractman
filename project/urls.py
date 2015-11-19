@@ -17,7 +17,7 @@ contracts_pattern = [  url(r'^add/$', ContractFormView.as_view(), name="addcontr
 # Project
 urlpatterns = [
     url(r'^projects/$', ProjectListView.as_view(), name="projects"),
-    url(r'^projects/add', ProjectFormView.as_view(), name="addproject"),
+    url(r'^projects/add/$', ProjectFormView.as_view(), name="addproject"),
     # project detail
     url(r'^project/(?P<pk>[\w-]+)/$', ContractListView.as_view(), name='project'),
     url(r'^project/(?P<pk>[\w-]+)/', include(contracts_pattern)),

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Project
-from company.models import Department
+from .models import Project, Contract
+
 
 
 # Register your models here.
@@ -11,9 +11,11 @@ class ProjectAdmin(admin.ModelAdmin):
                     )
     #fields = ('')
     
-class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('name',
-                    )
+class ContractAdmin(admin.ModelAdmin):
+    model = Contract
+    list_display = ('serial_number',
+                 'name',)
+
     
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(Department, DepartmentAdmin)
+admin.site.register(Contract, ContractAdmin)
