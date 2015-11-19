@@ -26,8 +26,8 @@ class Contract(models.Model):
     content = models.TextField(max_length=300, verbose_name="合同内容")
     fundlimit = models.IntegerField(verbose_name="合同上限金额(万元)")
     important = models.BooleanField(default=False, verbose_name="重要性")
-    partA = models.CharField(max_length=50)
-    partB = models.CharField(max_length=50)
+    partA = models.CharField(verbose_name="甲方", max_length=50)
+    partB = models.CharField(verbose_name="乙方", max_length=50)
     timeline = models.CharField(max_length=30, verbose_name="时限(年-月-日)")
     project = models.ForeignKey('Project')
     

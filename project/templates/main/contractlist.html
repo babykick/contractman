@@ -17,6 +17,7 @@
         <th>合同内容</th>
         <th>甲方</th>
         <th>乙方</th>
+        <th>合同预算</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@
         <td>{{ contract.content }}</td>    
         <td>{{ contract.partA }} </td>
         <td>{{ contract.partB }} </td>
+        <td>{{ contract.fundlimit }}万 </td>
       </tr>
       
       {% endfor %}   
