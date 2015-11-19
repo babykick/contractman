@@ -21,19 +21,21 @@
 <body>
 
 <div class="container">
- <a href="add/"><button type="button" class="btn btn-primary">新建项目</button></a>
+  <div class="col-md-4l">
+      <a href="{% url 'addproject' %}/"><button type="button" class="btn btn-primary">新建项目</button></a>  
+  </div>
   <ul class="list-group">
     {% for proj in projects %}
-    {% url 'project' proj.pk as proj_url %}
-      <li href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">
-          <a href="{{proj_url}}">{{proj.name}}</a>
-        </h4>
-        <p class="list-group-item-text"><b>编号</b>: {{proj.serial_number}}</p>
-      </li>
+      {% url 'project' proj.pk as proj_url %}
+        <li href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">
+            <a href="{{ proj_url }}">{{proj.name}}</a>
+          </h4>
+          <p class="list-group-item-text"><b>编号</b>: {{proj.serial_number}}</p>
+        </li>
     {% endfor %} 
   <ul>
-  
+ 
 </div>
 
 </body>

@@ -18,7 +18,6 @@ class ProjectFormView(FormView):
     form_class = ProjectForm
     
     def post(self, request, *args, **kwargs):
-        print "in"
         form = self.get_form(self.form_class)
         if form.is_valid():
             item = form.save()
@@ -41,15 +40,20 @@ class ProjectDetailView(DetailView):
 class ContractFormView(FormView):
     template_name = "main/addcontract.html"
     form_class = ContractForm
-    
+   
     def post(self, request, *args, **kwargs):
-        form = self.get_form(self.form_class)
-        if form.is_valid():
-            item = form.save()
-            return redirect("/project/contracts") #self.form_valid(form, **kwargs)
-           
-        else:
-            return self.form_invalid(form, **kwargs)
+        return super(ContractFormView, self).post(request, *args, **kwargs)
+    
+    def get_success_url(self):
+        return "/project/{0}".format(self.kwargs['pk'])
+        
+        # form = self.get_form(self.form_class)
+        # if form.is_valid():
+        #     item = form.save()
+        #     return redirect("/project/{0}".format(self.kwargs['pk'])) #self.form_valid(form, **kwargs)
+        #    
+        # else:
+        #     return self.form_invalid(form, **kwargs)
  
 
 
@@ -58,6 +62,9 @@ class ContractListView(ListView):
     context_object_name = "contracts"
     template_name = "main/contractlist.html"
     
+    #def get_queryset(self):
+        #publisher = get_object_or_404(Publisher, name__iexact=self.args[0])
+        #return Contract.objects.filter(project=self.kwargs['pk'])
 
 class WorkOrderFormView(FormView):
     template_name = "main/addworkorder.html"

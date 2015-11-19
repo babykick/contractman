@@ -1,5 +1,6 @@
 #coding=utf-8
 from django.db import models
+from company.models import Department
 import uuid
 
 
@@ -10,7 +11,8 @@ class Project(models.Model):
     """
     serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="项目编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="项目名称")
-    intro = models.TextField(max_length=300, verbose_name="项目介绍",default="")
+    intro = models.TextField(max_length=300, verbose_name="项目介绍", default="")
+    department = models.ForeignKey(Department, verbose_name="所属部门", null=True)
     
 
 # Create your models here.
@@ -20,9 +22,12 @@ class Contract(models.Model):
     serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="合同编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="合同名称")
     content = models.TextField(max_length=300, verbose_name="合同内容")
-    fund = models.IntegerField(verbose_name="合同上限金额(万元)")
+    fundlimit = models.IntegerField(verbose_name="合同上限金额(万元)")
     important = models.BooleanField(default=False, verbose_name="重要性")
-    
+    partA = models.CharField(max_length=50)
+    partB = models.CharField(max_length=50)
+    timeline = models.DateTimeField()
+    project = models.ForeignKey('Project')
     
     
 class WorkOrder(models.Model):

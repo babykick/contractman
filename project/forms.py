@@ -19,7 +19,8 @@ class ContractForm(ModelForm):
         fields = ('serial_number',
                   'name',
                   'content',
-                  'fund',)
+                  'fundlimit',
+                  'timeline')
         
         
 class WorkOrderForm(ModelForm):

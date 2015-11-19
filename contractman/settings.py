@@ -19,7 +19,7 @@ ADMINS = ()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mobileprojman',
+        'NAME': 'contractman',
         'USER': 'postgres',
         'PASSWORD':'Hacker1218',
         'HOST':'localhost',
@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'django_extensions',
     # apps    
     'project',
+    'company',
 )
 
 # A sample logging configuration. The only tangible logging
