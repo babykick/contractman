@@ -7,12 +7,18 @@ from company.models import Department
 from .forms import ContractForm, WorkOrderForm, ProjectForm
 # Create your views here.
 from django.views.generic import View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-
+ 
 class IndexView(ListView):
     context_object_name = "departments"
     template_name = "index.html"
     model = Department
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(IndexView, self).dispatch(*args, **kwargs)
 
 
 class DashboardView(ListView):
@@ -20,6 +26,9 @@ class DashboardView(ListView):
     template_name = "main/dashboard.html"
     model = Project
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DashboardView, self).dispatch(*args, **kwargs)
 
 
 class ProjectFormView(FormView):
