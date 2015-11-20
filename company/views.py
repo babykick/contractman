@@ -35,5 +35,5 @@ class LoginView(View):
             if user.is_active:
                  return render(request, 'main/dashboard.html')
          else:
-            pass
+            return render(reques)
 
