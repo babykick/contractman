@@ -22,7 +22,7 @@ DATABASES = {
         'NAME': 'contractman',
         'USER': 'postgres',
         'PASSWORD':'Hacker1218',
-        'HOST':'localhost',
+        'HOST':'111.8.186.228',
         'TEST': {
                     'charset': 'utf-8',
                      },

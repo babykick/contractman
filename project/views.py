@@ -10,26 +10,25 @@ from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
- 
-class IndexView(ListView):
+class RequiredLoginMixin(object):
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(self.__class__, self).dispatch(*args, **kwargs)
+    
+class IndexView(RequiredLoginMixin, ListView):
     context_object_name = "departments"
     template_name = "index.html"
     model = Department
     
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(IndexView, self).dispatch(*args, **kwargs)
+    
 
 
-class DashboardView(ListView):
+class DashboardView(RequiredLoginMixin, ListView):
     context_object_name = "projects"
     template_name = "main/dashboard.html"
     model = Project
 
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(DashboardView, self).dispatch(*args, **kwargs)
-
+    
 
 class ProjectFormView(FormView):
     template_name = "main/addProject.html"
