@@ -35,6 +35,7 @@ class DashboardView(ListView):
         print self.request.user
         context = super(DashboardView, self).get_context_data(**kwargs)
         context['dept_projects'] = Project.objects.filter(department=self.request.user.member.department)
+        context['member'] = self.request.user.member
         return context
     
 

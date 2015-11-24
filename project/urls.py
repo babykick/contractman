@@ -5,6 +5,7 @@ from django.conf.urls import patterns, url, include
  
 from .views import DashboardView, ProjectListView, ProjectFormView, ProjectDetailView, \
                    ContractFormView, ContractListView
+from company.views import MemberView
  
 
 
@@ -21,6 +22,7 @@ urlpatterns = [
     url(r'^projects/add/$', ProjectFormView.as_view(), name="addproject"),
     # project detail
     url(r'^project/(?P<pk>[\w-]+)/$', ContractListView.as_view(), name='project'),
+    url(r'^member/(?P<pk>[0-9]+)/$', MemberView.as_view(), name='member'), 
     url(r'^project/(?P<pk>[\w-]+)/', include(contracts_pattern)),
     
 ]

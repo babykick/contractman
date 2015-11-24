@@ -1,9 +1,11 @@
 #coding=utf-8
 from django.shortcuts import render, redirect
-from django.views.generic import View, FormView
+from django.views.generic import View, FormView, DetailView
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from project.views import DashboardView
+from .models import Member
+
 
 # Create your views here.
 class RegisterView(View):    
@@ -38,3 +40,7 @@ class LoginView(View):
          else:
             return render(request)
 
+
+class MemberView(DetailView):
+    model = Member
+    template_name = "main/member.html"
