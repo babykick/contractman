@@ -14,7 +14,7 @@ class Department(models.Model):
 
 class Member(models.Model):
     name = models.CharField(verbose_name="用户名", max_length=30)
-    
+    department = models.ForeignKey('Department', null=True)
     user = models.OneToOneField('auth.User')
     
     

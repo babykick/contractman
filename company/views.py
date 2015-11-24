@@ -1,9 +1,9 @@
 #coding=utf-8
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View, FormView
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-
+from project.views import DashboardView
 
 # Create your views here.
 class RegisterView(View):    
@@ -33,7 +33,8 @@ class LoginView(View):
          user = authenticate(username=username, password=password)
          if user is not None:
             if user.is_active:
-                 return render(request, 'main/dashboard.html')
+                 login(request, user)
+                 return redirect('/dashboard/')
          else:
-            return render(reques)
+            return render(request)
 
