@@ -72,7 +72,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="http://getbootstrap.com/examples/dashboard/#">合同管理 <span class="sr-only">(current)</span></a></li>
-            <li><a href="{% url 'projects' %}">所有项目</a></li>
+            <li><a href="{% url 'projects' %}?dept={{ member.department.pk}}">所有项目</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">查看项目进展图表</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">查看计划</a></li>
           </ul>
@@ -98,7 +98,7 @@
              <img data-src="holder.js/200x200/auto/sky" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_dUbLTN8239hqML71uwvpbdGvHLMbXt7cpzilUOcXNuAMedg62A"  width=60 class="img-responsive" alt="图标">  
               
               <h4>项目总数</h4>
-              <span class="text-muted">{{ dept_projects.count }}</span>
+              <a href="{% url 'projects' %}?dept={{ member.department.pk}}"><span class="text-muted">{{ dept_projects.count }}</span></a>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="图标">

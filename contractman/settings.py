@@ -102,7 +102,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'contractman.urls'
-LOGIN_URL = '/accounts/login/' #?next=/dashboard/'
+#LOGIN_URL = '/accounts/login/' #?next=/dashboard/'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'contractman.wsgi.application'
