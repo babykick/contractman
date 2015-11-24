@@ -27,8 +27,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-      
-      
+      li.danger{
+        color: green;
+      }
+    
       
     </style>
   </head>
@@ -52,7 +54,7 @@
         <div id="navbar" class="navbar-collapse collapse">
            <ul class="nav navbar-nav navbar-left">
                <li class="warning"><a href="{% url 'member' member.id %} ">{{ member.department }}: {{ member.name }}</a></li>
-               <li class="danger"><a href="/logout/"> 登出</a></li>
+               <li class="danger"><a href="/logout/">登出</a></li>
            </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="http://getbootstrap.com/examples/dashboard/#">工作台</a></li>
