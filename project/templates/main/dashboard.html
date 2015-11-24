@@ -27,9 +27,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-       .nav.navbar-nav.navbar-left a {
-            color: white;
-       }
+      
+      
       
     </style>
   </head>
@@ -53,6 +52,7 @@
         <div id="navbar" class="navbar-collapse collapse">
            <ul class="nav navbar-nav navbar-left">
                <li class="warning"><a href="{% url 'member' member.id %} ">{{ member.department }}: {{ member.name }}</a></li>
+               <li class="danger"><a href="/logout/"> 登出</a></li>
            </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="http://getbootstrap.com/examples/dashboard/#">工作台</a></li>
@@ -71,10 +71,10 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="http://getbootstrap.com/examples/dashboard/#">合同管理 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">合同管理 <span class="sr-only">(current)</span></a></li>
             <li><a href="{% url 'projects' %}?dept={{ member.department.pk}}">所有项目</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">查看项目进展图表</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">查看计划</a></li>
+            <li><a href="#">查看项目进展图表</a></li>
+            <li><a href="#">查看计划</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class='active'><a href="">其他</a></li>
@@ -118,6 +118,7 @@
           </div>
           <h1 class="sub-header"><strong>我的待办</strong></h1>
           <div class="row placeholders">
+             无
           </div>
           <h2 class="sub-header"><strong>项目表</strong></h2>
           <div class="table-responsive">

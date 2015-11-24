@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View, FormView, DetailView
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from project.views import DashboardView
 from .models import Member
 
@@ -40,6 +40,12 @@ class LoginView(View):
          else:
             return render(request)
 
+
+class LogoutView(View):
+     def get(self, request):
+         logout(request)
+         return redirect('/accounts/login/')
+        
 
 class MemberView(DetailView):
     model = Member
