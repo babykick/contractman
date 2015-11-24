@@ -29,7 +29,13 @@ class DashboardView(ListView):
     context_object_name = "projects"
     template_name = "main/dashboard.html"
     model = Project
-
+    
+    
+    def get_context_data(self, **kwargs):
+        print self.request.user
+        context = super(DashboardView, self).get_context_data(**kwargs)
+        context['dept_projects'] = Project.objects.filter(department=self.request.user.member.department)
+        return context
     
 
 class ProjectFormView(FormView):
