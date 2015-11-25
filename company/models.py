@@ -17,4 +17,7 @@ class Member(models.Model):
     department = models.ForeignKey('Department', null=True)
     user = models.OneToOneField('auth.User')
     
+    def __unicode__(self):
+        return u'{0}[{1}]'.format(self.name, self.department.name)
+    
     

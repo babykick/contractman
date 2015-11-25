@@ -13,10 +13,16 @@ class Project(models.Model):
     name = models.CharField(max_length=50, verbose_name="项目名称")
     intro = models.TextField(max_length=300, verbose_name="项目介绍", default="")
     department = models.ForeignKey(Department, verbose_name="所属部门", null=True, related_name='projects')
+    pm = models.ForeignKey('company.Member', verbose_name="项目负责人", default=1)
+    budget = models.PositiveIntegerField(verbose_name=u"批复开支费用(万元)", default=0)
+    material_cost = models.PositiveIntegerField(verbose_name=u"材料费用(万元)", default=0)
+    construction_cost = models.PositiveIntegerField(verbose_name=u"施工费用(万元)", default=0)
+    supervision_cost = models.PositiveIntegerField(verbose_name=u"监理费用(万元)", default=0)
+    coordination_cost = models.PositiveIntegerField(verbose_name=u"协调费用(万元)", default=0) 
+    other_cost = models.PositiveIntegerField(verbose_name=u"其他费用(万元)", default=0)
     
     
     
-
 # Create your models here.
 class Contract(models.Model):
     """ 合同

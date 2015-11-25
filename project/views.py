@@ -103,9 +103,11 @@ class ContractListView(ListView):
     context_object_name = "contracts"
     template_name = "main/contractlist.html"
     
-    #def get_queryset(self):
+    def get_queryset(self):
         #publisher = get_object_or_404(Publisher, name__iexact=self.args[0])
-        #return Contract.objects.filter(project=self.kwargs['pk'])
+        return Contract.objects.filter(project=self.kwargs['pk'])
+
+
 
 class WorkOrderFormView(FormView):
     template_name = "main/addworkorder.html"

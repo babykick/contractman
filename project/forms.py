@@ -10,7 +10,13 @@ class ProjectForm(ModelForm):
         fields = ('serial_number',
                   'name',
                   'intro',
-                  'department'
+                  'pm',
+                  'budget',
+                  'material_cost',
+                  'construction_cost',
+                  'supervision_cost',
+                  'coordination_cost',
+                  'other_cost',
                 )
         
 
