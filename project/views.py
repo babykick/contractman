@@ -69,7 +69,12 @@ class ProjectListView(ListView):
     
 class ProjectDetailView(DetailView):
     model = Project
-   
+    template_name = "main/projectdetail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetailView, self).get_context_data(**kwargs)
+        context['project'] = Project.objects.get(pk=self.kwargs['pk'])
+        return context
    
 class ContractFormView(FormView):
     template_name = "main/addcontract.html"

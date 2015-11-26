@@ -17,11 +17,15 @@ contracts_pattern = [  url(r'^add/$', ContractFormView.as_view(), name="addcontr
 
 # Project
 urlpatterns = [
-    url(r'^projects/$', ProjectListView.as_view(), name="projects"),
+    # dashboard
     url(r'^dashboard/$', DashboardView.as_view(), name="dashboard"),
-    url(r'^projects/add/$', ProjectFormView.as_view(), name="addproject"),
+    # project list
+    url(r'^projects/$', ProjectListView.as_view(), name="projects"),
     # project detail
-    url(r'^project/(?P<pk>[\w-]+)/$', ContractListView.as_view(), name='project'),
+    url(r'^project/(?P<pk>[\w-]+)/$', ProjectDetailView.as_view(), name='project'),
+    # add project
+    url(r'^projects/add/$', ProjectFormView.as_view(), name="addproject"),
+    
     url(r'^member/(?P<pk>[0-9]+)/$', MemberView.as_view(), name='member'), 
     url(r'^project/(?P<pk>[\w-]+)/', include(contracts_pattern)),
     

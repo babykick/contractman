@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>合同管理</title>
+    <title>个人工作台</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">合同管理 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
             <li><a href="{% url 'projects' %}?dept={{ member.department.pk}}">所有项目</a></li>
             <li><a href="#">查看项目进展图表</a></li>
             <li><a href="#">查看计划</a></li>
@@ -126,10 +126,8 @@
                    <thead>
                      <tr>
                        <th>项目名</th>
-                       <th>项目编号</th>
-                       <th>批复岳阳分公司开支费用(万元)</th>
-                       <th>累计完成(万元)</th>
-                       <th>完成比例</th>
+                       <th>项目编号</th>  
+                       <th>资本开支进度</th>
                        <th>未完成投资(万元)</th>
                         
                      </tr>
@@ -140,8 +138,6 @@
                      <tr class="danger">
                        <td><a href="{{ proj_url }}">{{ proj.name }}</a></td>
                        <td>{{ proj.serial_number }}</td>
-                       <td>{{ proj.budget }}</td>
-                       <td>{{ proj.total_cost }}</td>
                        <td>{{ proj.cost_percent }}</td>
                        <td>{{ proj.left_fund }}</td>
                      </tr>
@@ -150,19 +146,20 @@
                  </table>
                </div>
           </div>
+          <div class="row">
           <h2 class="sub-header"><strong>项目表</strong></h2>
+          <!--<h3><a style=" display: inline-block;text-align:center;float:left;" class="active" href="{% url 'projects' %}?dept={{ member.department.pk}}">进入管理></a></h3>  -->
+          </div>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>项目名</th>
                   <th>项目编号</th>
-                  <th>批复岳阳分公司开支费用(万元)</th>
-                  <th>材料费用(万元)</th>
-                  <th>施工费用(万元)</th>
-                  <th>监理费用(万元)</th>
-                  <th>协调费用(万元)</th>
-                  <th>其他费用(万元)</th>
+                  <th>批复金额(万元)</th>
+                  <th>累计完成(万元)</th>
+                  <th>完成比例</th>
+                  <th>未完成投资(万元)</th>
                   <th>项目负责人</th>
                 </tr>
               </thead>
@@ -173,11 +170,9 @@
                   <td><a href="{{ proj_url }}">{{ proj.name }}</a></td>
                   <td>{{ proj.serial_number }}</td>
                   <td>{{ proj.budget }}</td>
-                  <td>{{ proj.material_cost }}</td>
-                  <td>{{ proj.construction_cost }}</td>
-                  <td>{{ proj.supervision_cost }}</td>
-                  <td>{{proj.coordination_cost }}</td>
-                  <td>{{ proj.other_cost }}</td>
+                  <td>{{ proj.total_cost }}</td>
+                  <td>{{ proj.cost_percent }}</td>
+                  <td>{{ proj.left_fund }}</td>
                   <td>{{ proj.pm.name }} </td>
                 </tr>
               {% endfor %} 
