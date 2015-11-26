@@ -121,7 +121,34 @@
           </div>
           <h1 class="sub-header"><strong>我的待办</strong></h1>
           <div class="row placeholders">
-             无
+                 <div class="table-responsive">
+                 <table class="table">
+                   <thead>
+                     <tr>
+                       <th>项目名</th>
+                       <th>项目编号</th>
+                       <th>批复岳阳分公司开支费用(万元)</th>
+                       <th>累计完成(万元)</th>
+                       <th>完成比例</th>
+                       <th>未完成投资(万元)</th>
+                        
+                     </tr>
+                   </thead>
+                   <tbody>
+                   {% for proj in projects %}
+                      {% url 'project' proj.pk as proj_url %}
+                     <tr class="danger">
+                       <td><a href="{{ proj_url }}">{{ proj.name }}</a></td>
+                       <td>{{ proj.serial_number }}</td>
+                       <td>{{ proj.budget }}</td>
+                       <td>{{ proj.total_cost }}</td>
+                       <td>{{ proj.cost_percent }}</td>
+                       <td>{{ proj.left_fund }}</td>
+                     </tr>
+                   {% endfor %} 
+                   </tbody>
+                 </table>
+               </div>
           </div>
           <h2 class="sub-header"><strong>项目表</strong></h2>
           <div class="table-responsive">

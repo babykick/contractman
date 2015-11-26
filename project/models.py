@@ -1,4 +1,5 @@
 #coding=utf-8
+from __future__ import division
 from django.db import models
 from company.models import Department
 import uuid
@@ -22,6 +23,14 @@ class Project(models.Model):
     other_cost = models.PositiveIntegerField(verbose_name=u"其他费用(万元)", default=0)
     
     
+    def total_cost(self):
+        return self.material_cost + self.construction_cost + self.supervision_cost + self.coordination_cost + self.other_cost
+    
+    def cost_percent(self):
+        return "{0:2.0f}%".format(self.total_cost() / self.budget * 100)
+    
+    def left_fund(self):
+        return self.budget - self.total_cost()
     
 # Create your models here.
 class Contract(models.Model):
