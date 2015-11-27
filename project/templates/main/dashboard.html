@@ -125,22 +125,27 @@
                  <table class="table">
                    <thead>
                      <tr>
-                       <th>项目名</th>
-                       <th>项目编号</th>  
+                       <th>合同名</th>
+                       <th>合同编号</th>  
                        <th>资本开支进度</th>
                        <th>未完成投资(万元)</th>
                         
                      </tr>
                    </thead>
                    <tbody>
-                   {% for proj in projects %}
-                      {% url 'project' proj.pk as proj_url %}
-                     <tr class="danger">
-                       <td><a href="{{ proj_url }}">{{ proj.name }}</a></td>
-                       <td>{{ proj.serial_number }}</td>
-                       <td>{{ proj.cost_percent }}</td>
-                       <td>{{ proj.left_fund }}</td>
-                     </tr>
+                   {% for proj in dept_projects %}
+                  
+                     {% for contract in proj.contracts.all %}
+                       {% if contract.fundWarning %}
+                         {% url 'contract' contract.pk as contract_url %}
+                            <tr class="danger">
+                              <td><a href="{{ contract_url }}">{{ contract.name }}</a></td>
+                              <td>{{ contract.serial_number }}</td>
+                              <td>{{ contract.cost_percent }}</td>
+                              <td>{{ contract.left_fund }}</td>
+                            </tr>
+                       {% endif %}
+                     {% endfor %} 
                    {% endfor %} 
                    </tbody>
                  </table>
@@ -164,7 +169,7 @@
                 </tr>
               </thead>
               <tbody>
-              {% for proj in projects %}
+              {% for proj in dept_projects %}
                  {% url 'project' proj.pk as proj_url %}
                 <tr>
                   <td><a href="{{ proj_url }}">{{ proj.name }}</a></td>

@@ -25,7 +25,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a href="{{ proj_url }}">{{ project.name }}</a></td>
+                  {% url 'contracts' proj.pk as contracts_url %}
+                  <td><a href="{{ contracts_url }}">{{ project.name }}</a></td>
                   <td>{{ project.serial_number }}</td>
                   <td>{{ project.budget }}</td>
                   <td><a class="active" href="#"><strong>{{ project.construction_cost }}</strong></a></td>

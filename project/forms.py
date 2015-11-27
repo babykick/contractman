@@ -26,7 +26,7 @@ class ContractForm(ModelForm):
         fields = ('serial_number',
                   'name',
                   'content',
-                  'fundlimit',
+                  'fund_limit',
                   'timeline',
                   'partA',
                   'partB')

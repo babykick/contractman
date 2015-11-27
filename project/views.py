@@ -1,3 +1,4 @@
+#coding=utf-8
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import FormView
 from django.views.generic import CreateView, ListView, DetailView
@@ -19,13 +20,13 @@ class RequiredLoginMixin(object):
     
     
     
-class IndexView(ListView):
+class IndexView(  ListView):
     context_object_name = "departments"
     template_name = "index.html"
     model = Department
     
      
-class DashboardView(ListView):
+class DashboardView( ListView):
     context_object_name = "projects"
     template_name = "main/dashboard.html"
     model = Project
@@ -113,6 +114,15 @@ class ContractListView(ListView):
         return Contract.objects.filter(project=self.kwargs['pk'])
 
 
+class ContractDetailView(DetailView):
+    model = Project
+    template_name = "main/contractdetail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(ContractDetailView, self).get_context_data(**kwargs)
+        context['contract'] = Project.objects.get(pk=self.kwargs['pk'])
+        return context
+    
 
 class WorkOrderFormView(FormView):
     template_name = "main/addworkorder.html"

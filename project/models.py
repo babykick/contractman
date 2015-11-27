@@ -32,6 +32,11 @@ class Project(models.Model):
     def left_fund(self):
         return self.budget - self.total_cost()
     
+    
+    def __unicode__(self):
+        return self.name
+    
+    
 # Create your models here.
 class Contract(models.Model):
     """ 合同
@@ -39,12 +44,23 @@ class Contract(models.Model):
     serial_number = models.CharField(max_length=50, primary_key=True, verbose_name="合同编号", unique=True)
     name = models.CharField(max_length=50, verbose_name="合同名称")
     content = models.TextField(max_length=300, verbose_name="合同内容")
-    fundlimit = models.IntegerField(verbose_name="合同上限金额(万元)")
+    fund_limit = models.IntegerField(verbose_name="合同上限金额(万元)")
+    used_fund = models.IntegerField(verbose_name="已完成投资(万元)")
     important = models.BooleanField(default=False, verbose_name="重要性")
     partA = models.CharField(verbose_name="甲方", max_length=50)
     partB = models.CharField(verbose_name="乙方", max_length=50)
     timeline = models.CharField(max_length=30, verbose_name="时限(年-月-日)")
-    project = models.ForeignKey('Project')
+    project = models.ForeignKey('Project', related_name='contracts')
+    
+     
+    def cost_percent(self):
+        return "{0:2.0f}%".format(self.used_fund  / self.fund_limit * 100)
+    
+    def fundWarning(self):
+        return self.used_fund  / self.fund_limit * 100 > 80
+    
+    def left_fund(self):
+        return  self.fund_limit - self.used_fund
     
     
 class WorkOrder(models.Model):
