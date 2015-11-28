@@ -127,8 +127,8 @@
                      <tr>
                        <th>合同名</th>
                        <th>合同编号</th>  
-                       <th>资本开支进度</th>
-                       <th>未完成投资(万元)</th>
+                       <th>合同金额上限(万元)</th>
+                       <th>合同时限</th>
                         
                      </tr>
                    </thead>
@@ -141,8 +141,8 @@
                             <tr class="danger">
                               <td><a href="{{ contract_url }}">{{ contract.name }}</a></td>
                               <td>{{ contract.serial_number }}</td>
-                              <td>{{ contract.cost_percent }}</td>
-                              <td>{{ contract.left_fund }}</td>
+                              <td>{{ contract.fund_limit }}</td>
+                              <td>{{ contract.timeline }}</td>
                             </tr>
                        {% endif %}
                      {% endfor %} 

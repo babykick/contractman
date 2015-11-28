@@ -17,20 +17,21 @@
                   <th>项目编号</th>
                   <th>批复金额(万元)</th>
                   <th>施工费(万元)</th>
-                  <th>监理费(万元)</th>
                   <th>材料费(万元)</th>
+                  <th>监理费(万元)</th>
                   <th>协调费(万元)</th>
                   <th>其他(万元)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  {% url 'contracts' proj.pk as contracts_url %}
+                  {% url 'contracts' project.pk as contracts_url %}
                   <td><a href="{{ contracts_url }}">{{ project.name }}</a></td>
                   <td>{{ project.serial_number }}</td>
                   <td>{{ project.budget }}</td>
-                  <td><a class="active" href="#"><strong>{{ project.construction_cost }}</strong></a></td>
-                  <td><a href="#"><strong>{{ project.supervision_cost }}</strong></a></td>
+                  <td><a class="active" href="{{contracts_url}}?type=construction"><strong>{{ project.construction_cost }}</strong></a></td>
+                  <td><a class="active" href="{{contracts_url}}?type=material"><strong>{{ project.material_cost }}</strong></a></td>
+                  <td><a href="#">{{ project.supervision_cost }}</a></td>
                   <td>{{ project.coordination_cost }}</td>
                   <td>{{ project.other_cost }}</td>
                 </tr>

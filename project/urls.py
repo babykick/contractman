@@ -4,13 +4,13 @@ from __future__ import unicode_literals
 from django.conf.urls import patterns, url, include
  
 from .views import DashboardView, ProjectListView, ProjectFormView, ProjectDetailView, \
-                   ContractFormView, ContractListView, ContractDetailView
+                   ContractCreateView, ContractListView, ContractDetailView
 from company.views import MemberView
  
 
 
 # Contracts under the project        
-contracts_pattern = [  url(r'^add/$', ContractFormView.as_view(), name="addcontract"),
+contracts_pattern = [  url(r'^add/$', ContractCreateView.as_view(), name="addcontract"),
                        url(r'^contracts/$', ContractListView.as_view(), name="contracts"),   
                      ]
 

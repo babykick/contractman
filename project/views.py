@@ -20,7 +20,7 @@ class RequiredLoginMixin(object):
     
     
     
-class IndexView(  ListView):
+class IndexView(ListView):
     context_object_name = "departments"
     template_name = "index.html"
     model = Department
@@ -40,7 +40,7 @@ class DashboardView( ListView):
         return context
     
 
-class ProjectFormView(FormView):
+class ProjectFormView(CreateView):
     template_name = "main/addProject.html"
     form_class = ProjectForm
     
@@ -77,7 +77,8 @@ class ProjectDetailView(DetailView):
         context['project'] = Project.objects.get(pk=self.kwargs['pk'])
         return context
    
-class ContractFormView(FormView):
+   
+class ContractCreateView(CreateView):
     template_name = "main/addcontract.html"
     form_class = ContractForm
    
@@ -88,7 +89,7 @@ class ContractFormView(FormView):
         if project:
             form.instance.project = project
             form.save()
-            return super(ContractFormView, self).form_valid(form)
+            return super(ContractCreateView, self).form_valid(form)
         
     
     def get_success_url(self):
@@ -111,7 +112,11 @@ class ContractListView(ListView):
     
     def get_queryset(self):
         #publisher = get_object_or_404(Publisher, name__iexact=self.args[0])
-        return Contract.objects.filter(project=self.kwargs['pk'])
+        cttype = self.request.GET.get('type')
+        if cttype:
+            return Contract.objects.filter(project=self.kwargs['pk'], contract_type=cttype)
+        else:
+            return Contract.objects.filter(project=self.kwargs['pk'])
 
 
 class ContractDetailView(DetailView):
@@ -124,12 +129,11 @@ class ContractDetailView(DetailView):
         return context
     
 
-class WorkOrderFormView(FormView):
+class WorkOrderFormView(CreateView):
     template_name = "main/addworkorder.html"
     form_class = WorkOrderForm
     
     def post(self, request, *args, **kwargs):
-        print "in"
         form = self.get_form(self.form_class)
         if form.is_valid():
             item = form.save()
