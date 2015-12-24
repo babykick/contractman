@@ -1,10 +1,36 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 import os
 import sys
+from os.path import abspath, basename, dirname, join, normpath
+from sys import path
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+########## PATH CONFIGURATION
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Absolute filesystem path to the config directory:
+CONFIG_ROOT = dirname(dirname(abspath(__file__)))
+
+# Absolute filesystem path to the project directory:
+PROJECT_ROOT = dirname(CONFIG_ROOT)
+
+# Absolute filesystem path to the django repo directory:
+DJANGO_ROOT = dirname(PROJECT_ROOT)
+
+# Project name:
+PROJECT_NAME = basename(PROJECT_ROOT).capitalize()
+
+# Project folder:
+PROJECT_FOLDER = basename(PROJECT_ROOT)
+
+# Project domain:
+PROJECT_DOMAIN = '%s.com' % PROJECT_NAME.lower()
+
+# Add our project to our pythonpath, this way we don't need to type our project
+# name in our dotted import paths:
+path.append(CONFIG_ROOT)
+########## END PATH CONFIGURATION
+
 
 # Include BOOTSTRAP3_FOLDER in path
 BOOTSTRAP3_FOLDER = os.path.abspath(os.path.join(BASE_DIR, '..', 'bootstrap3'))
@@ -101,11 +127,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'contractman.urls'
+ROOT_URLCONF = 'config.urls'
 #LOGIN_URL = '/accounts/login/' #?next=/dashboard/'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'contractman.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

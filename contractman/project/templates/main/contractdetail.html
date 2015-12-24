@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    合同详情
+{% endblock %}
+
+{% block content %}
+<div class="container">
+   
+  <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>合同名</th>
+                  <th>合同号</th>
+                  <th>合同上限金额(万元)</th>
+                  <th>甲方</th>
+                  <th>乙方</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {% url 'contract_detail' contract.pk as contract_url %}
+                  <td><a href="{{ contracts_url }}">{{ contract.name }}</a></td>
+                  <td>{{ contract.serial_number }}</td>
+                  <td>{{ contract.fund_limit }}</td>
+                  <td>{{ contract.partA }}</td>
+                  <td>{{ contract.partB }}</td>
+                </tr>
+            
+              </tbody>
+            </table>
+    </div>
+</div>
+ 
+
+{% endblock %}

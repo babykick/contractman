@@ -1,0 +1,5 @@
+# Local development dependencies go here
+-r test.txt
+django-rest-swagger
+django-debug-toolbar
+Sphinx

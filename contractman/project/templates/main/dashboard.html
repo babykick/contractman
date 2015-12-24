@@ -137,7 +137,7 @@
                   
                      {% for contract in proj.contracts.all %}
                        {% if contract.fundWarning %}
-                         {% url 'contract' contract.pk as contract_url %}
+                         {% url 'contract_detail' contract.pk as contract_url %}
                             <tr class="danger">
                               <td><a href="{{ contract_url }}">{{ contract.name }}</a></td>
                               <td>{{ contract.serial_number }}</td>

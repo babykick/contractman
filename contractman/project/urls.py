@@ -28,7 +28,7 @@ urlpatterns = [
     # 合同url集合 
     url(r'^project/(?P<pk>[\w-]+)/', include(contracts_pattern)),
     # 合同详细
-    url(r'^contract/(?P<pk>[\w-]+)/', ContractDetailView.as_view(), name='contract'),
+    url(r'^contract/(?P<pk>[\w-]+)/', ContractDetailView.as_view(), name='contract_detail'),
     # 成员
     url(r'^member/(?P<pk>[0-9]+)/$', MemberView.as_view(), name='member'), 
 ]

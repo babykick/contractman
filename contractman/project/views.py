@@ -10,15 +10,21 @@ from .forms import ContractForm, WorkOrderForm, ProjectForm
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from braces.views import LoginRequiredMixin
 
 
+# class RequiredLoginMixin(object):
+#     @method_decorator(login_required)
+#     def dispatch(self, *args, **kwargs):
+#         return super(self.__class__, self).dispatch(*args, **kwargs)
 
-class RequiredLoginMixin(object):
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(self.__class__, self).dispatch(*args, **kwargs)
-    
-    
+
+class RequiredLoginMixin(LoginRequiredMixin):
+    redirect_unauthenticated_users = True
+    login_url = "/accounts/login/"
+    raise_exception = False
+
+
     
 class IndexView(ListView):
     context_object_name = "departments"
@@ -26,11 +32,11 @@ class IndexView(ListView):
     model = Department
     
      
-class DashboardView( ListView):
+class DashboardView(RequiredLoginMixin, ListView):
     context_object_name = "projects"
     template_name = "main/dashboard.html"
     model = Project
-    
+   
     
     def get_context_data(self, **kwargs):
         print self.request.user
@@ -120,12 +126,12 @@ class ContractListView(ListView):
 
 
 class ContractDetailView(DetailView):
-    model = Project
+    model = Contract
     template_name = "main/contractdetail.html"
     
     def get_context_data(self, **kwargs):
         context = super(ContractDetailView, self).get_context_data(**kwargs)
-        context['contract'] = Project.objects.get(pk=self.kwargs['pk'])
+        context['contract'] = Contract.objects.get(pk=self.kwargs['pk'])
         return context
     
 
