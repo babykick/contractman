@@ -87,7 +87,12 @@ class ProjectDetailView(DetailView):
 class ContractCreateView(CreateView):
     template_name = "main/addcontract.html"
     form_class = ContractForm
-   
+    
+    def get_context_data(self, **kwargs):
+        context = super(ContractCreateView, self).get_context_data(**kwargs)
+        context['project'] = Project.objects.get(pk=self.kwargs['pk'])
+        return context
+    
     def form_valid(self, form):
         print self.kwargs
         project = get_object_or_404(Project, pk=self.kwargs['pk'])

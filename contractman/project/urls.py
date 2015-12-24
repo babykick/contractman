@@ -10,7 +10,7 @@ from company.views import MemberView
 
 
 # Contracts under the project        
-contracts_pattern = [  url(r'^add/$', ContractCreateView.as_view(), name="addcontract"),
+contracts_pattern = [  url(r'^contracts/add/$', ContractCreateView.as_view(), name="addcontract"),
                        url(r'^contracts/$', ContractListView.as_view(), name="contracts"),   
                      ]
 
