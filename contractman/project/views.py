@@ -47,7 +47,7 @@ class DashboardView(RequiredLoginMixin, ListView):
     
 
 class ProjectFormView(CreateView):
-    template_name = "main/addProject.html"
+    template_name = "main/addproject.html"
     form_class = ProjectForm
     
     def post(self, request, *args, **kwargs):
