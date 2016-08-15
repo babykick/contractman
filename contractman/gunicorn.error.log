@@ -96,3 +96,84 @@
 [2016-08-15 10:01:25 +0000] [4024] [INFO] Booting worker with pid: 4024
 [2016-08-15 10:01:25 +0000] [4025] [INFO] Booting worker with pid: 4025
 [2016-08-15 10:01:25 +0000] [4028] [INFO] Booting worker with pid: 4028
+[2016-08-15 14:42:19 +0000] [10779] [INFO] Booting worker with pid: 10779
+[2016-08-15 14:42:19 +0000] [10787] [INFO] Booting worker with pid: 10787
+[2016-08-15 14:42:19 +0000] [10822] [INFO] Booting worker with pid: 10822
+[2016-08-15 14:42:19 +0000] [10855] [INFO] Booting worker with pid: 10855
+[2016-08-15 14:42:19 +0000] [10858] [INFO] Booting worker with pid: 10858
+[2016-08-15 14:42:19 +0000] [10871] [INFO] Booting worker with pid: 10871
+[2016-08-15 14:42:19 +0000] [10876] [INFO] Booting worker with pid: 10876
+[2016-08-15 14:42:19 +0000] [10879] [INFO] Booting worker with pid: 10879
+[2016-08-15 14:42:19 +0000] [10881] [INFO] Booting worker with pid: 10881
+[2016-08-15 14:42:19 +0000] [10891] [INFO] Booting worker with pid: 10891
+[2016-08-15 14:42:19 +0000] [10899] [INFO] Booting worker with pid: 10899
+[2016-08-15 14:42:19 +0000] [10901] [INFO] Booting worker with pid: 10901
+[2016-08-15 14:42:19 +0000] [10905] [INFO] Booting worker with pid: 10905
+[2016-08-15 14:42:19 +0000] [10909] [INFO] Booting worker with pid: 10909
+[2016-08-15 14:42:19 +0000] [10921] [INFO] Booting worker with pid: 10921
+[2016-08-15 14:42:19 +0000] [3977] [INFO] Handling signal: hup
+[2016-08-15 14:42:19 +0000] [3977] [INFO] Hang up: Master
+[2016-08-15 14:42:19 +0000] [10928] [INFO] Booting worker with pid: 10928
+[2016-08-15 14:42:19 +0000] [10931] [INFO] Booting worker with pid: 10931
+[2016-08-15 14:42:19 +0000] [10930] [INFO] Booting worker with pid: 10930
+[2016-08-15 14:42:19 +0000] [10935] [INFO] Booting worker with pid: 10935
+[2016-08-15 14:42:19 +0000] [10929] [INFO] Booting worker with pid: 10929
+[2016-08-15 14:42:19 +0000] [10937] [INFO] Booting worker with pid: 10937
+[2016-08-15 14:42:19 +0000] [10933] [INFO] Booting worker with pid: 10933
+[2016-08-15 14:42:19 +0000] [10936] [INFO] Booting worker with pid: 10936
+[2016-08-15 14:42:19 +0000] [10934] [INFO] Booting worker with pid: 10934
+[2016-08-15 14:42:19 +0000] [10932] [INFO] Booting worker with pid: 10932
+[2016-08-15 14:42:19 +0000] [10938] [INFO] Booting worker with pid: 10938
+[2016-08-15 14:42:19 +0000] [10943] [INFO] Booting worker with pid: 10943
+[2016-08-15 14:42:19 +0000] [3977] [INFO] Handling signal: term
+[2016-08-15 14:42:19 +0000] [10944] [INFO] Booting worker with pid: 10944
+[2016-08-15 14:42:19 +0000] [10942] [INFO] Booting worker with pid: 10942
+[2016-08-15 14:42:19 +0000] [10945] [INFO] Booting worker with pid: 10945
+[2016-08-15 14:42:19 +0000] [10941] [INFO] Booting worker with pid: 10941
+[2016-08-15 14:42:19 +0000] [10946] [INFO] Booting worker with pid: 10946
+[2016-08-15 08:42:19 +0000] [10876] [INFO] Worker exiting (pid: 10876)
+[2016-08-15 08:42:20 +0000] [10858] [INFO] Worker exiting (pid: 10858)
+[2016-08-15 08:42:20 +0000] [10879] [INFO] Worker exiting (pid: 10879)
+[2016-08-15 08:42:20 +0000] [10779] [INFO] Worker exiting (pid: 10779)
+[2016-08-15 08:42:20 +0000] [10871] [INFO] Worker exiting (pid: 10871)
+[2016-08-15 08:42:20 +0000] [10787] [INFO] Worker exiting (pid: 10787)
+[2016-08-15 08:42:20 +0000] [10822] [INFO] Worker exiting (pid: 10822)
+[2016-08-15 08:42:20 +0000] [10881] [INFO] Worker exiting (pid: 10881)
+[2016-08-15 08:42:20 +0000] [10891] [INFO] Worker exiting (pid: 10891)
+[2016-08-15 08:42:20 +0000] [10899] [INFO] Worker exiting (pid: 10899)
+[2016-08-15 08:42:20 +0000] [10855] [INFO] Worker exiting (pid: 10855)
+[2016-08-15 08:42:20 +0000] [10901] [INFO] Worker exiting (pid: 10901)
+[2016-08-15 08:42:21 +0000] [10936] [INFO] Worker exiting (pid: 10936)
+[2016-08-15 08:42:21 +0000] [10905] [INFO] Worker exiting (pid: 10905)
+[2016-08-15 08:42:21 +0000] [10931] [INFO] Worker exiting (pid: 10931)
+[2016-08-15 08:42:21 +0000] [10909] [INFO] Worker exiting (pid: 10909)
+[2016-08-15 08:42:21 +0000] [10937] [INFO] Worker exiting (pid: 10937)
+[2016-08-15 08:42:21 +0000] [10921] [INFO] Worker exiting (pid: 10921)
+[2016-08-15 08:42:21 +0000] [10935] [INFO] Worker exiting (pid: 10935)
+[2016-08-15 08:42:21 +0000] [10928] [INFO] Worker exiting (pid: 10928)
+[2016-08-15 08:42:21 +0000] [10934] [INFO] Worker exiting (pid: 10934)
+[2016-08-15 08:42:21 +0000] [10929] [INFO] Worker exiting (pid: 10929)
+[2016-08-15 08:42:21 +0000] [10932] [INFO] Worker exiting (pid: 10932)
+[2016-08-15 08:42:21 +0000] [10933] [INFO] Worker exiting (pid: 10933)
+[2016-08-15 08:42:21 +0000] [10930] [INFO] Worker exiting (pid: 10930)
+[2016-08-15 14:42:49 +0000] [3977] [INFO] Shutting down: Master
+[2016-08-15 14:50:30 +0000] [3283] [INFO] Starting gunicorn 19.4.1
+[2016-08-15 14:50:30 +0000] [3283] [INFO] Listening at: http://127.0.0.1:8000 (3283)
+[2016-08-15 14:50:30 +0000] [3283] [INFO] Using worker: gevent
+[2016-08-15 14:50:30 +0000] [3288] [INFO] Booting worker with pid: 3288
+[2016-08-15 14:50:30 +0000] [3289] [INFO] Booting worker with pid: 3289
+[2016-08-15 14:50:30 +0000] [3290] [INFO] Booting worker with pid: 3290
+[2016-08-15 14:50:30 +0000] [3291] [INFO] Booting worker with pid: 3291
+[2016-08-15 14:50:30 +0000] [3292] [INFO] Booting worker with pid: 3292
+[2016-08-15 14:50:30 +0000] [3293] [INFO] Booting worker with pid: 3293
+[2016-08-15 14:50:30 +0000] [3294] [INFO] Booting worker with pid: 3294
+[2016-08-15 14:50:30 +0000] [3295] [INFO] Booting worker with pid: 3295
+[2016-08-15 14:50:30 +0000] [3296] [INFO] Booting worker with pid: 3296
+[2016-08-15 14:50:30 +0000] [3297] [INFO] Booting worker with pid: 3297
+[2016-08-15 14:50:30 +0000] [3318] [INFO] Booting worker with pid: 3318
+[2016-08-15 14:50:30 +0000] [3319] [INFO] Booting worker with pid: 3319
+[2016-08-15 14:50:30 +0000] [3320] [INFO] Booting worker with pid: 3320
+[2016-08-15 14:50:30 +0000] [3325] [INFO] Booting worker with pid: 3325
+[2016-08-15 14:50:31 +0000] [3326] [INFO] Booting worker with pid: 3326
+[2016-08-15 14:50:31 +0000] [3329] [INFO] Booting worker with pid: 3329
+[2016-08-15 14:50:31 +0000] [3332] [INFO] Booting worker with pid: 3332
